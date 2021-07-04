@@ -11,13 +11,21 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
+    "dotenv": "^8.6.0",
     "express": "^4.17.1",
     "multiparty": "^4.2.2",
-    "nodemailer": "^6.4.11",
+    "nodemailer": "^6.6.2",
     "nodemon": "^2.0.4"
   },
   "engines": {
     "node": "12.14.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abrahamProp/Nodemailer-Tutorial.git"
+  },
+  "bugs": {
+    "url": "https://github.com/abrahamProp/Nodemailer-Tutorial/issues"
+  },
+  "homepage": "https://github.com/abrahamProp/Nodemailer-Tutorial#readme"
 }
