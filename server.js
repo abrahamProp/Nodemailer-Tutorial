@@ -15,7 +15,7 @@ app.use("/public", express.static(process.cwd() + "/public")); //make public sta
 
 const transporter = nodemailer.createTransport({
   host: process.env.HOST,
-  port: process.env.PORT,
+  port: process.env.EMAILPORT,
   auth: {
     user: process.env.EMAIL,
     pass:process.env.PASS,
