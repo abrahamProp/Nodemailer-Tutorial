@@ -48,7 +48,7 @@ app.post("/send", (req, res) => {
     transporter.sendMail(mail, (err, data) => {
       if (err) {
         console.log(err);
-        res.status(500).send("Algo mal tamal.");
+        res.status(500).send(err);
       } else {
         res.status(200).send("Email successfully sent to recipient!");
       }
