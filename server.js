@@ -43,8 +43,8 @@ app.post("/send", (req, res) => {
     const mail = {
       sender: `${data.name} <${data.email}>`,
       to: "abraham@propulsar.com", // receiver email,
-      subject: data.subject,
-      text: `${data.name} <${data.email}> \n${data.message}`,
+      subject: "Nuevo contacto en web",
+      text: `${data.name} <${data.email}> \n${data.categoria} \n${data.message}`,
     };
     transporter.sendMail(mail, (err, data) => {
       if (err) {
