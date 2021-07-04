@@ -14,11 +14,11 @@ app.use(cors({ origin: "*" }));
 app.use("/public", express.static(process.cwd() + "/public")); //make public static
 
 const transporter = nodemailer.createTransport({
-  host: process.env.HOST,
-  port: process.env.EMAILPORT,
+  host: "smtp.gmail.com",
+  port: 587,
   auth: {
-    user: process.env.EMAIL,
-    pass:process.env.PASS,
+    user: "contacto@propulsar.com",
+    pass: "contacto124",
   },
 });
 
