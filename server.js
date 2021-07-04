@@ -31,6 +31,7 @@ transporter.verify(function (error, success) {
 });
 
 app.post("/send", (req, res) => {
+  console.log("aquí sí entra");
   let form = new multiparty.Form();
   let data = {};
   form.parse(req, function (err, fields) {
