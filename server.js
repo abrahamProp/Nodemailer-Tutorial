@@ -14,10 +14,10 @@ app.use(cors({ origin: "*" }));
 app.use("/public", express.static(process.cwd() + "/public")); //make public static
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  service: "hotmail",
   auth: {
-    user: 'contacto@propulsar.com',
-    pass: 'contacto1234',
+    user: process.env.EMAIL,
+    pass: process.env.PASS,
   },
 });
 
@@ -31,7 +31,6 @@ transporter.verify(function (error, success) {
 });
 
 app.post("/send", (req, res) => {
-  console.log("aquí sí entra");
   let form = new multiparty.Form();
   let data = {};
   form.parse(req, function (err, fields) {
@@ -49,7 +48,7 @@ app.post("/send", (req, res) => {
     transporter.sendMail(mail, (err, data) => {
       if (err) {
         console.log(err);
-        res.status(500).send("Algo tamal");
+        res.status(500).send("Algo mal tamal.");
       } else {
         res.status(200).send("Email successfully sent to recipient!");
       }
