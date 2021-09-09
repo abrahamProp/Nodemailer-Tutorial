@@ -57,6 +57,32 @@ app.post("/send", (req, res) => {
   });
 });
 
+app.post("/send-newsletter", (req, res) => {
+  let form = new multiparty.Form();
+  let data = {};
+  form.parse(req, function (err, fields) {
+    console.log(fields);
+    Object.keys(fields).forEach(function (property) {
+      data[property] = fields[property].toString();
+    });
+    console.log(data);
+    const mail = {
+      sender: `Web Propulsar`,
+      to: "abraham@propulsar.com", // receiver email,
+      subject: "Nuevo contacto en web",
+      text: `Nuevo correo newsletter`,
+    };
+    transporter.sendMail(mail, (err, data) => {
+      if (err) {
+        console.log(err);
+        res.status(500).send(err);
+      } else {
+        res.status(200).send("Email successfully sent to recipient!");
+      }
+    });
+  });
+});
+
 //Index page (static HTML)
 app.route("/").get(function (req, res) {
   res.sendFile(process.cwd() + "/public/index.html");
