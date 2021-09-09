@@ -69,8 +69,8 @@ app.post("/send-newsletter", (req, res) => {
     const mail = {
       sender: `Web Propulsar`,
       to: "abraham@propulsar.com", // receiver email,
-      subject: "Nuevo contacto en web",
-      text: `Nuevo correo newsletter`,
+      subject: "Nuevo suscriptor al newsletter",
+      text: `Correo: ${data.correo}`,
     };
     transporter.sendMail(mail, (err, data) => {
       if (err) {
